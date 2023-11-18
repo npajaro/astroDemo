@@ -1,0 +1,21 @@
+---
+import CardLaunch from './CardLaunch.astro';
+import { gestLatestLaunches } from '../services/spacex'
+
+const launches = await gestLatestLaunches()
+
+---
+<div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+        launches.map((launch) => (
+            <CardLaunch
+            id={launch.id}
+            img={launch.links.patch.small ?? 'https://via.placeholder.com/300'}
+            details={launch.details ?? 'Sin Detalles'}
+            flightNumber={launch.flight_number}
+            success={launch.success ?? false}
+            />
+
+        ))
+    } 
+</div>
