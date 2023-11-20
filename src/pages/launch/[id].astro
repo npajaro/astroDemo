@@ -1,0 +1,45 @@
+---
+import type { GetStaticPaths } from "astro";
+import { gestLatestLaunches, gestLaunchBy } from '../../services/spacex'
+import Layout from "../../layouts/Layout.astro";
+
+const { id } = Astro.params
+console.log({id})
+
+let launch
+if (id) {
+  launch = await gestLaunchBy({id})
+}
+
+export async function getStaticPaths() {
+    // Llamar a la API externa gestLatestLaunches para saber la ids que debes generar
+    const launches = await gestLatestLaunches()
+    return launches.map((launch) => ({ 
+        params: { id: launch.id } 
+    }))
+}
+
+console.log(launch)
+
+// export async function getStaticPaths() {
+//     // Llamar a la API externa gestLatestLaunches para saber la ids que debes generar
+//     return [
+//         { params: { id: '5eb87cd9ffd86e000604b32a' } },
+//         { params: { id: '5eb87cdaffd86e000604b32b' } },
+//         { params: { id: '5eb87cdbffd86e000604b32c' } },
+//         { params: { id: '5eb87cdbffd86e000604b32d' } },
+//         { params: { id: '5eb87cdcffd86e000604b32e' } },
+//     ];
+// }
+
+console.log(launch)
+---
+
+<Layout title={`Lanzamiento ${id}`}>
+    <article class="flex gap-y-4 flex-col">
+        <img class="w-52 h-auto" src={launch?.links?.patch?.small} alt={launch?.name} />
+        <h2 class="text-4xl text-white font-bold">Launch #{launch?.flight_number}</h2>
+        <h2>Nombre {launch?.name} </h2>
+        <p> {launch?.details} </p>
+    </article>
+</Layout>
