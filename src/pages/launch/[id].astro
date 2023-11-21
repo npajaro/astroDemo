@@ -11,15 +11,15 @@ if (id) {
   launch = await gestLaunchBy({id})
 }
 
-// export async function getStaticPaths() {
-//     // Llamar a la API externa gestLatestLaunches para saber la ids que debes generar
-//     const launches = await gestLatestLaunches()
-//     return launches.map((launch) => ({ 
-//         params: { id: launch.id } 
-//     }))
-// }
+export async function getStaticPaths() {
+    // Llamar a la API externa gestLatestLaunches para saber la ids que debes generar
+    const launches = await gestLatestLaunches()
+    return launches.map((launch) => ({ 
+        params: { id: launch.id } 
+    }))
+}
 
-// console.log(launch)
+console.log(launch)
 
 // export async function getStaticPaths() {
 //     // Llamar a la API externa gestLatestLaunches para saber la ids que debes generar
