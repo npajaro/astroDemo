@@ -12,6 +12,8 @@ export const BASE_URL = '/astroDemo';
 export default defineConfig({
   integrations: [tailwind()],
   // output: 'server',
-  site: 'https://npajaro.github.io',
+  site: {
+    baseUrl: 'https://npajaro.github.io',
+  },
   base: BASE_URL,
 });
