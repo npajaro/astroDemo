@@ -9,7 +9,7 @@ const launches = await gestLatestLaunches()
     {
         launches.map((launch) => (
             <CardLaunch
-            id={launch.id}
+            id={`${launch.id}`}
             img={launch.links.patch.small ?? 'https://via.placeholder.com/300'}
             details={launch.details ?? 'Sin Detalles'}
             flightNumber={launch.flight_number}

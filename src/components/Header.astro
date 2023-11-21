@@ -1,4 +1,5 @@
 ---
+import { BASE_URL } from "../../astro.config.mjs";
 import HeaderButton from "./HeaderButton.astro";
 console.log('javascript')
 ---
@@ -15,7 +16,7 @@ console.log('javascript')
 
 
     <nav class="flex flex-col items-center justify-between w-full text-center md:flex-row">
-        <HeaderButton class="text-white" href="/astroDemo">
+        <HeaderButton class="text-white" href={`${BASE_URL}`}>
             <svg slot="before" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M4 13a8 8 0 0 1 7 7a6 6 0 0 0 3 -5a9 9 0 0 0 6 -8a3 3 0 0 0 -3 -3a9 9 0 0 0 -8 6a6 6 0 0 0 -5 3" />
@@ -24,7 +25,7 @@ console.log('javascript')
               </svg>
             Últimos lanzamientos
         </HeaderButton>
-        <HeaderButton class="text-white" href="/astroDemo/about">
+        <HeaderButton class="text-white" href={`${BASE_URL}/about`}>
             <svg slot="before" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
@@ -33,7 +34,7 @@ console.log('javascript')
               </svg>
             Sobre el proyecto
         </HeaderButton>
-        <HeaderButton class="text-white" href="/astroDemo/oldest">
+        <HeaderButton class="text-white" href={`${BASE_URL}/oldest`}>
             <svg slot="before" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#2c3e50" fill="none" stroke-linecap="round" stroke-linejoin="round">
                 <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
                 <path d="M21 12.3a9 9 0 1 0 -8.683 8.694" />
