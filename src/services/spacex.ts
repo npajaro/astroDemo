@@ -31,3 +31,19 @@ export const gestLatestLaunches = async () => {
     const {docs: launches} = await res.json() as APISpaceXResponse;
     return launches;
 }
+
+export const fetchData = async () => {
+
+    const appToken = 'pJlPCoZd28UvUvd8cxjDE6eG3';
+    const url = `https://www.datos.gov.co/resource/fs36-azrv.json?$limit=5000&$$app_token=${appToken}`;
+
+    fetch(url)
+    .then(response => response.json())
+    .then(data => {
+        // console.log(`Retrieved ${data.length} records from the dataset!`);
+        console.log(data);
+    })
+    .catch(error => {
+        console.error(error);
+    });
+  }

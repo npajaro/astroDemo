@@ -1,10 +1,19 @@
 ---
 // import type { GetStaticPaths } from "astro";
-import { gestLatestLaunches, gestLaunchBy } from '../../services/spacex'
+import { fetchData, gestLatestLaunches, gestLaunchBy } from '../../services/spacex'
 import Layout from "../../layouts/Layout.astro";
 
 const { id } = Astro.params
 console.log({id})
+
+const datos = await fetchData()
+
+export async function DataApi() {
+  const datos = await fetchData()
+  return datos
+}
+
+console.log(datos)
 
 let launch
 if (id) {
